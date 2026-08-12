@@ -1,0 +1,27 @@
+services:
+  - type: worker
+    name: crypto-breakout-scanner
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: CHAIN
+        value: solana
+      - key: POLL_SECONDS
+        value: "30"
+      - key: MIN_SCORE
+        value: "78"
+      - key: MIN_LIQUIDITY_USD
+        value: "25000"
+      - key: MIN_VOLUME_5M_USD
+        value: "5000"
+      - key: MAX_MC_USD
+        value: "100000000"
+      - key: SEARCH_TERMS
+        value: SOL,USDC,SOLANA
