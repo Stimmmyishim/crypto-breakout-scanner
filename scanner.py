@@ -275,11 +275,20 @@ def process():
 
 
 if __name__ == "__main__":
+
     logging.info("Starting Solana breakout scanner...")
+
     logging.info(
-        "poll=%ss min_score=%s min_liquidity=$%s",
-        POLL_SECONDS, MIN_SCORE, MIN_LIQUIDITY_USD
+
+        "min_score=%s min_liquidity=$%s",
+
+        MIN_SCORE, MIN_LIQUIDITY_USD
+
     )
+
+    process()
+
+    logging.info("Scan complete. Exiting.")
 
     while True:
         started = time.time()
